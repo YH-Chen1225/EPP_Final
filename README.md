@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 epp_final
 =========
 
@@ -25,3 +26,7 @@ $ pytask
 This project was created with [cookiecutter](https://github.com/audreyr/cookiecutter)
 and the
 econ-project-templates](https://github.com/OpenSourceEconomics/econ-project-templates).
+=======
+# EPP_Final
+##I haven't finished yet
+>>>>>>> 5f4bd893dc890bc685010ea53f79e5ead4b0e02f
