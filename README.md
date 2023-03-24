@@ -1,5 +1,8 @@
-![image](https://github.com/YH-Chen1225/EPP_Final/blob/master/src/benchmark_treatment.png)
-Replication of paper: What Motivates Effort? Evidence and Expert Forecasts(EPP Final Project)
+<p align="center">
+  <img src="https://github.com/YH-Chen1225/EPP_Final/blob/master/src/Replication_of_paper__What_Motivates_Effort__Evidence_and_Expert_Forecasts(EPP_Final_Project).png" alt="Sublime's custom image"/>
+</p>
+
+<br> Replication of paper: What Motivates Effort? Evidence and Expert Forecasts(EPP Final Project)
 =========
 
 ![image](https://img.shields.io/badge/Language-Python-brightgreen)
