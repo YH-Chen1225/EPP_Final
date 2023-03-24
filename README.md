@@ -1,25 +1,23 @@
-<<<<<<< HEAD
-epp_final
+![image](https://github.com/YH-Chen1225/EPP_Final/blob/master/src/benchmark_treatment.png)
+Replication of paper: What Motivates Effort? Evidence and Expert Forecasts(EPP Final Project)
 =========
 
+![image](https://img.shields.io/badge/Language-Python-brightgreen)
+![image](https://img.shields.io/badge/Version-3.11-yellowgreen)
+![image](https://img.shields.io/badge/Kernel-epp__final-orange)
+
+## Author
+- Name: Yu-Hsin Chen  
+- Matriculation Num: 3461265
+- Email : s6ynche2@uni-bonn.de 
+
+## Main contribution of this project
+- Almost all the code have been re-write in a more efficient way.
+- Several graphs have been added and some table have been modify to makes the project more comprehensive
+- It can run in pytask successfully
 
 
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/YH-Chen1225/epp_final/main.svg)](https://results.pre-commit.ci/latest/github/YH-Chen1225/epp_final/main)
-[![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
-## Usage
-
-To get started, create and activate the environment with
-
-```console
-$ conda/mamba env create
-$ conda activate epp_final
-```
-Now you can build the project using
-
-```console
-$ pytask
-```
 
 ## Credits
 
