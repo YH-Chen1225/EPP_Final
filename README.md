@@ -1,4 +1,4 @@
-![image](C:\Users\ua896\Downloads\Replication_of_paper__What_Motivates_Effort__Evidence_and_Expert_Forecasts(EPP_Final_Project).png)
+![image](https://github.com/YH-Chen1225/EPP_Final/blob/master/src/benchmark_treatment.png)
 Replication of paper: What Motivates Effort? Evidence and Expert Forecasts(EPP Final Project)
 =========
 
