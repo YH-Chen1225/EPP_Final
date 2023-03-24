@@ -145,7 +145,7 @@ kwargs = {"produces": BLD / "python" / "figures" / "params_comparison_exp.png"}
 )
 
 @pytask.mark.task(kwargs=kwargs)
-def task_plot_params_comparison(depends_on,produces):
+def task_plot_params_comparison_exp(depends_on,produces):
     t5 = pd.read_csv(depends_on["data"])
     fig = params_comparison(t5,"exp")
     fig.show()
@@ -160,7 +160,7 @@ kwargs = {"produces": BLD / "python" / "figures" / "params_comparison_power.png"
 )
 
 @pytask.mark.task(kwargs=kwargs)
-def task_plot_params_comparison(depends_on,produces):
+def task_plot_params_comparison_power(depends_on,produces):
     t5 = pd.read_csv(depends_on["data"])
     fig = params_comparison(t5,"power")
     fig.show()
@@ -177,7 +177,7 @@ kwargs = {"produces": BLD / "python" / "figures" / "another_params_comparison_ex
 )
 
 @pytask.mark.task(kwargs=kwargs)
-def task_plot_another_params_comparison(depends_on,produces):
+def task_plot_another_params_comparison_exp(depends_on,produces):
     t6 = pd.read_csv(depends_on["data"])
     fig = another_params_comparison(t6,"e_est","e_aut","exponential")
     fig.show()
@@ -193,7 +193,7 @@ kwargs = {"produces": BLD / "python" / "figures" / "another_params_comparison_po
 )
 
 @pytask.mark.task(kwargs=kwargs)
-def task_plot_another_params_comparison(depends_on,produces):
+def task_plot_another_params_comparison_power(depends_on,produces):
     t6 = pd.read_csv(depends_on["data"])
     fig = another_params_comparison(t6,"p_est","p_aut","power")
     fig.show()
@@ -223,7 +223,7 @@ kwargs = {"produces": BLD / "python" / "figures" / "mini_dist_params_comparison_
 )
 
 @pytask.mark.task(kwargs=kwargs)
-def task_plot_mini_dist_params_comparison_power(depends_on,produces):
+def task_plot_mini_dist_params_comparison_exp(depends_on,produces):
     gmm = pd.read_csv(depends_on["data"])
     fig = mini_dist(df=gmm,a = "exp cost function")
     fig.show()
