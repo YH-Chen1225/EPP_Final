@@ -47,8 +47,9 @@ Follwing treatment are allocating to participants
  
 - Discounting
   - Participants may earn 1 cent per 100 points after **two weeks from today** or **four weeks from today**
+  - 
 
-- 
+ 
   
 
 
