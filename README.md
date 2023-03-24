@@ -20,7 +20,7 @@
 - It can run in pytask successfully
 
 
-
+![image](https://github.com/YH-Chen1225/EPP_Final/blob/master/src/another_params_comparison_exp.html)
 
 ## Credits
 
