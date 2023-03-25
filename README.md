@@ -16,7 +16,7 @@
 
 ## Main contribution of this project
 - Almost all the code have been re-write in a more efficient way.
-- Several graphs have been added and some table have been modify to makes the project more comprehensive
+- Several graphs have been added and more analysis result have been added and modify to makes the project more comprehensive
 - It can run in pytask successfully
 
 ## File Managemnet
