@@ -6,7 +6,8 @@ from epp_final.config import BLD
 from epp_final.config import PAPER_DIR
 
 
-documents = ["epp_final", "epp_final_pres"]
+ #"epp_final_pres"
+documents = ["epp_final"]
 
 for document in documents:
 

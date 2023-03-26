@@ -1,138 +1,616 @@
-\documentclass[11pt, a4paper, leqno]{article}
-\usepackage{a4wide}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{float, afterpage, rotating, graphicx}
-\usepackage{epstopdf}
-\usepackage{longtable, booktabs, tabularx}
-\usepackage{fancyvrb, moreverb, relsize}
-\usepackage{eurosym, calc}
-% \usepackage{chngcntr}
-\usepackage{amsmath, amssymb, amsfonts, amsthm, bm}
-\usepackage{caption}
-\usepackage{mdwlist}
-\usepackage{xfrac}
-\usepackage{setspace}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{subcaption}
-\usepackage{minibox}
-% \usepackage{pdf14} % Enable for Manuscriptcentral -- can't handle pdf 1.5
-% \usepackage{endfloat} % Enable to move tables / figures to the end. Useful for some
-% submissions.
-
-\usepackage[
-    natbib=true,
-    bibencoding=inputenc,
-    bibstyle=authoryear-ibid,
-    citestyle=authoryear-comp,
-    maxcitenames=3,
-    maxbibnames=10,
-    useprefix=false,
-    sortcites=true,
-    backend=biber
-]{biblatex}
-\AtBeginDocument{\toggletrue{blx@useprefix}}
-\AtBeginBibliography{\togglefalse{blx@useprefix}}
-\setlength{\bibitemsep}{1.5ex}
-\addbibresource{../../paper/refs.bib}
-
-\usepackage[unicode=true]{hyperref}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[11pt
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    anchorcolor=black,
-    citecolor=NavyBlue,
-    filecolor=black,
-    menucolor=black,
-    runcolor=black,
-    urlcolor=NavyBlue
-}
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-
-\widowpenalty=10000
-\clubpenalty=10000
-
-\setlength{\parskip}{1ex}
-\setlength{\parindent}{0ex}
-\setstretch{1.5}
-
+\author{Yu-Hsin CHEN}
+\date{2023/3/25}
 
 \begin{document}
 
-\title{epp final\thanks{Yu Hsin Chen, Bonn University. Email: \href{mailto:s6ynche2@uni-bonn.de}{\nolinkurl{s6ynche2 [at] uni-bonn [dot] de}}.}}
+\hypertarget{paper-replication}{%
+\section{Paper Replication:What motivates effort? Evidence and Experts Forecast}\label{paper-replication}}
 
-\author{Yu Hsin Chen}
+\hypertarget{background}{%
+\subsection{Background}\label{background}}
 
-\date{
-    {\bf Preliminary -- please do not quote}
-    \\[1ex]
-    \today
+This paper are discussing what motivates people to make effort and it is
+based on a online experiment, which asking participants to press the
+button as much as they can in a limit of time. When timeout, the
+participants would be given reward according to how many times they press
+the button and also according to the treatment they are allocated. In
+the experiment, participants would not know there are several treatments
+and it is also not allow to re-access or refresh the experiment page.
+
+\hypertarget{treatment}{%
+\subsection{Treatment}\label{treatment}}
+
+Following treatment is allocated to participants and press "a" and "b" once
+count as 1 point.
+
+\begin{itemize}
+\item
+  Benchmark Treatment
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \item
+    Normal Piece Rate: Participants would earn, \textbf{1 cent per 100
+    points} or \textbf{10 cent per 100 points}
+  \item
+    Special Piece Rate: Participants would earn, \textbf{1 cent per 1000
+    points} or \textbf{no reward}
+  \end{enumerate}
+\item
+  Social preferences
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \item
+    Charity: \textbf{Charity organization} would earn, \textbf{1 cent
+    per 100 points} or \textbf{10 cent per 100 points}
+  \item
+    Gift exchange: Participants would get \textbf{40 cent} anyway and
+    score would not affect the payment
+  \end{enumerate}
+\item
+  Discounting
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \item
+    Participants would earn 1 cent per 100 points after \textbf{two weeks
+    from today} or \textbf{four weeks from today}, in contrast,
+    participants for other treatment would receive the reward within 24
+    hours(if they have reward).
+  \end{enumerate}
+\item
+  Gain versus losses
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \item
+    Participants would be \textbf{paid extra 40 cents} if they
+    \textbf{score over 2000} points
+  \item
+    Participants would be told that they would \textbf{lose extra 40
+    cents bonus}, if they did not reach 2000 points threshold
+  \item
+    Participants would be \textbf{paid extra 80 cents} if they
+    \textbf{score over 2000}
+  \end{enumerate}
+\item
+  Risk aversion and probability weighting
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \item
+    Participants would have either \textbf{1\% chance} to be paid extra
+    1 dollars for every 100 points or \textbf{50\% chance} to be paid
+    extra 2 cents for every 100 points
+  \end{enumerate}
+\item
+  Social comparison: Participants would be told that many of others can
+  score more than 2000 points and no reward would be paid
+\item
+  Ranking: Result of participants would be compared with the result from
+  other people and no reward would be paid
+\item
+  Task significance: Participants would be ask to do their very best and
+  no reward would be paid
+\end{itemize}
+
+\hypertarget{result}{%
+\subsection{Result}\label{result}}
+
+\hypertarget{information-obtaining-from-the-original-data}{%
+\subsubsection{Information obtaining from the original
+data}\label{information-obtaining-from-the-original-data}}
+
+Please find all the figures in following path:
+\textbf{/bld/python/figures}
+
+\begin{itemize}
+\item
+  From the graph \textbf{confidence\_interval}, we can notice that
+  \textbf{The No treatment} has the lowest number of button press and \textbf{gain
+  80 cents if score over 2000 points} has the highest number of button press
+\item
+  From the graph \textbf{benchmark\_treatment}, 1.1 is \textbf{1 cent
+  per 100 points}, 1.2 is \textbf{10 cent per 100 points }, 1.3 is
+  \textbf{No payment}, 2 is \textbf{1 cent per 1000 points}. Here we can
+  notice that relatively many of participants whose treatment is
+  \textbf{no payment} score lower than 1000 compare with participants
+  from other treatment. Additionally, there is a huge different between
+  1.3 and 2, which means that even the participants only receive very
+  few rewards, it is still much motivated than no rewards.
+\item
+  From the graph \textbf{charity treatment}, 1 cent per 100 points(1.1)
+  can be regards as a benchmark. In the chart, notice that, participants
+  are more willing to making effort when receive the reward by themselves, comparing
+  to donate to charity organization. Besides, the difference between
+  3.1, \textbf{donating 1 cent per 100 points} , and 3.2,
+  \textbf{donating 10 cent per 100 points}, are relatively small.
+  Therefore, we can say that participants are more care about if they
+  donate the reward, instead of how much they donate.
+\item
+  From the graph \textbf{probability weight treatment}, the benchmark
+  treatment \textbf{1 cent per 100 points(1.1)} seems a more attractive
+  treatment, comparing to low probability but high reward option, which
+  is \textbf{1\% chance to be paid extra 1 dollars per 100 points (6.1)}
+  and \textbf{50\% chance to be paid extra 2 cent per 100 points(6.2)}.
+\item
+  From the graph \textbf{delay treatment}, we can observe that the
+  \textbf{benchmark treatment 1.1} is just slightly more motivated them
+  receiving the same amount but \textbf{two weeks delay rewards(4.1)} and \textbf{four weeks
+  delay rewards(4.2)} and we can also hardly tell the difference between
+  4.1 and 4.2.
+\item
+  From the graph \textbf{gain loss treatment}, we can observe that all
+  the gain loss treatment, \textbf{being paid extra 40 cents if they
+  score over 2000 points}, 5.1, \textbf{losing extra 40 cents bonus if
+  they score below 2000 points} ,5.2, and \textbf{being paid extra 80
+  cents if they score over 2000 points},5.3, are more motivated than
+  benchmark 1.1. Moreover, 5.2 and 5.3 has the very similar motivation
+  affect. Besides, there are very few participants finished their task
+  below 2000 points, and after exceeding the threshold,2000, number of
+  participants increase immediately.
+\item
+  In the graph \textbf{social treatment}, including social
+  \textbf{comparison(7)}, \textbf{ranking(8)}, and \textbf{task significant(9)}, all of these
+  treatment are clearly less motivated than benchmark (1.1).
+\end{itemize}
+
+\hypertarget{information-obtaining-from-table}{%
+\subsubsection{Information obtaining from
+table}\label{information-obtaining-from-table}}
+
+\textbf{All the table result} please find in the following path:
+\textbf{\textbackslash bld\textbackslash python\textbackslash data}\\
+\textbf{All the graph result} please find in the following path:
+\textbf{\textbackslash bld\textbackslash python\textbackslash figures}
+
+The assumption of exponential cost function and power cost function
+please check the original paper \emph{What motivates effort? Evidence
+and Experts Forecast} This article would not go deep in technical part.
+The \textbf{table\_1} in the above table path, shows the following
+result and it is the estimation result of these three parameters in
+\textbf{power cost function}.
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule()
+Parameters & curve fit & least squared & minimized\_nd & authors \\
+\midrule()
+\endhead
+Curvature of cost function & 21.1939 & 21.787 & 21.266 & 20.546 \\
+Level K of cost effort & 5.92E-72 & 2.17E-69 & 3.45E-72 & 5.12E-70 \\
+Intrinsic motivation S & 1.38E-06 & 9.56E-08 & 1.33E-06 & 3.17E-06 \\
+Min Objective function & 670.61 & 1112.339 & 670.61 & 672.387 \\
+\bottomrule()
+\end{longtable}
+
+Here, almost all the result are similar to the original python code, but
+in order to makes the scale comparable to the result from the paper, I
+change the scale which same as the one in paper.
+
+The \textbf{table\_1\_r2} in the above table path, shows the following
+result. The \textbf{table\_1\_r2} result are for \textbf{exponential
+cost function}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule()
+Parameters & curve fit & least squared & minimized\_nd & authors \\
+\midrule()
+\endhead
+Curvature of cost function & 0.0156 & 0.011 & 0.016 & 0.016 \\
+Level K of cost effort & 1.71E-16 & 8.22E-12 & 2.71E-16 & 1.71E-16 \\
+Intrinsic motivation S & 3.72E-06 & 1.16E-04 & 3.72E-06 & 3.72E-06 \\
+\bottomrule()
+\end{longtable}
+
+The \textbf{table\_1\_r2} are not in the original python code, but in
+order to keep the consistency of the content, it has been added. The
+\textbf{table\_1} and \textbf{table\_1\_r2} apply curve fit, least
+squared, and minimized\_nd, three kinds of estimation method.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ scipy.optimize }\ImportTok{as}\NormalTok{ opt
 }
+\CommentTok{\#following are the method I used
+}
+\NormalTok{opt.curve\_fit
+}
+\NormalTok{opt.least\_squares
+}
+\NormalTok{opt.minimize}
+\end{Highlighting}
+\end{Shaded}
 
-\maketitle
+These two tables are the replication of \textbf{table5 }of NLS part in
+PANEL A in the paper. Because the objective function result for exponential
+cost function is relatively large, so I did not include it in
+\textbf{table\_1\_r2}. It is probably result from the Exp cost function
+per se or because there are something wrong in the estimation process,
+and this table is not in the original code, so the result cannot be
+compared. However, the parameters estimation result is closed to the
+result from the authors anyway.\\
+Additionally, I also convert these table to the graphs to makes it
+easier for comparison. Please check, \textbf{method\_comparison} in the
+figure file.
+
+Next, the \textbf{table\_2} in the data file shows the following result.
+
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule()
+parameters & power\_est & power\_aut & se\_p & exp\_est & se\_e &
+exp\_aut \\
+\midrule()
+\endhead
+Curvature of cost function & 21.1939 & 20.546 & 7.39896 & 0.0156 &
+0.00415 & 0.0156 \\
+Level k of cost of effort & 5.95E-72 & 5.12E-70 & 3.33E-70 & 1.71E-16 &
+1.49E-15 & 1.71E-16 \\
+Intrinsic motivation s & 1.38E-06 & 3.17E-06 & 4.93E-06 & 3.72E-06 &
+9.16E-06 & 3.72E-06 \\
+Social preference & 0.013 & 0.006 & 0.03 & 0.004 & 0.011 & 0.07 \\
+Warm glow coefficient & 0.265 & 0.182 & 0.288 & 0.143 & 0.143 & 0.035 \\
+Gift exchange coefficient & 3.25E-05 & 2.04E-05 & 8.14E-05 & 2.35E-05 &
+4.82E-05 & 3.00E-05 \\
+present biased coefficient & 1.616 & 1.36 & 2.053 & 1.237 & 1.302 &
+0.79 \\
+Weekly discount factor & 0.751 & 0.75 & 0.292 & 0.754 & 0.239 & 0.86 \\
+\bottomrule()
+\end{longtable}
+
+This table are the replication of \textbf{Table 5} NLS part in PANEL B
+in the paper. \textbf{power\_est} is the parameters estimation result for
+power cost function, which apply curve fit method. \textbf{power\_aut}
+are parameters of power cost function from the authors. \textbf{se\_p}
+is their standard error. Furthermore, \textbf{exp\_est} are parameters
+estimation result for exponential cost function. \textbf{exp\_aut} are
+also the result of authors for Exp cost function, and \textbf{se\_e} is
+still the standard error. Besides, I also convert the result to the
+graphs for easier comparison. Please check
+\textbf{params\_comparison\_exp} and \textbf{params\_comparison\_power}
+in figures file.
+
+Next, the \textbf{table\_3} in the data file shows the following result
+
+{\setlength\tabcolsep{2.5pt}\small
+\begin{longtable}{l*{10}{r}}
+%\begin{longtable}[]{@{}llllllllll@{}}
+\toprule()
+parameters & P\_est1 & P\_se1 & P\_aut1 & P\_est2 & P\_se2 & P\_aut2 &
+P\_est3 & P\_aut3 & P\_se3 \\
+\midrule()
+\endhead
+Curvature of cost function & 20.9475 & 5.7752 & 20.59 & 18.9623 & 5.2711
+& 18.87 & 19.6386 & 19.64 & 17.3201 \\
+Level k of cost of effort & 3.89E-71 & 1.70E-69 & 3.77E-70 & 1.96E-64 &
+7.68E-63 & 3.92E-64 & 1.01E-66 & 1.02E-66 & 1.36E-64 \\
+Intrinsic motivation s & 1.57E-06 & 4.23E-06 & 2.66E-06 & 5.96E-06 &
+1.47E-05 & 6.22E-06 & 3.75E-06 & 3.75E-06 & 4.17E-05 \\
+Probability Weighting & 0.1928 & 0.173 & 0.19 & 0.3732 & 0.3042 & 0.38 &
+0.2952 & 0.3 & 1.5657 \\
+Curvature of utility over piece rate & 1 & 0 & 1 & 0.88 & 0 & 0.88 &
+0.9235 & 0.92 & 0.9289 \\
+\bottomrule()
+\end{longtable}
 
 
-\begin{abstract}
-    Some abstract here.
-\end{abstract}
+and
 
-\clearpage
+\begin{longtable}[]{@{}llllllllll@{}}
+\toprule()
+parameters & E\_est4 & E\_se4 & E\_aut1 & E\_est5 & E\_se5 & E\_aut2 &
+E\_est6 & E\_aut3 & E\_se6 \\
+\midrule()
+\endhead
+Curvature of cost function & 0.0134 & 0.0026 & 0.01 & 0.0119 & 0.0023 &
+0.01 & 0.0072 & 0.01 & 0.0029 \\
+Level k of cost of effort & 2.42E-14 & 1.29E-13 & 2.42E-14 & 7.50E-13 &
+3.56E-12 & 7.50E-13 & 5.46E-08 & 5.46E-08 & 3.70E-07 \\
+Intrinsic motivation s & 1.64E-05 & 2.40E-05 & 1.65E-05 & 5.55E-05 &
+7.20E-05 & 5.55E-05 & 3.14E-03 & 3.14E-03 & 7.50E-03 \\
+Probability Weighting & 0.239 & 0.1427 & 0.24 & 0.466 & 0.2472 & 0.466 &
+4.2961 & 4.3 & 5.4624 \\
+Curvature of utility over piece rate & 1 & 0 & 1 & 0.88 & 0 & 0.88 &
+0.4679 & 0.47 & 0.2368 \\
+\bottomrule()
+\end{longtable}
 
+The \textbf{table\_3} is the replication of \textbf{table 6} in the
+paper. The first table is for power cost function, and the second one is
+for exponential cost function. The difference between P\_est1, P\_est2
+and P\_est3 are their curvature of utility over piece rate. For P\_est1
+and P\_est2, it is pre-defined, which is 1 and 0.88 respectively. For
+P\_est3, the curvature of utility over piece rate is regards as a
+parameters and curve fit method is applied to find its optimal value,
+here is 0.9235.\\
+The case for Exp cost function is the same. The Curvature of utility
+over piece rate has been pre-defined as 1 and 0.88 for E\_est4 and
+E\_est5. E\_est6 has the optimal Curvature of utility over piece rate,
+0.4679. P\_se and E\_se are their standard error. E\_aut and P\_aut are
+the result from authors. The tables have been covert to graph for easier
+comparison. Please check \textbf{another\_params\_comparison\_exp} and
+\textbf{another\_params\_comparison\_power} in
+\textbf{bld/python/figures}
 
-\section{Introduction} % (fold)
-\label{sec:introduction}
+Additionally, the following table, \textbf{table\_gmm} also in the
+\textbackslash data file, and it shows following result.
 
-If you are using this template, please cite this item from the references:
-\citet{GaudeckerEconProjectTemplates}.
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule()
+parameters & P\_esti & P\_authors & P\_se & E\_esti & E\_authors &
+E\_se \\
+\midrule()
+\endhead
+Level k of cost of effort & 2.54E-112 & 2.56E-112 & 1.53E-60 & 1.27E-16
+& 1.27E-16 & 2.75E-11 \\
+Curvature of cost function & 33.138 & 33.137 & 12.214 & 0.016 & 0.016 &
+0.006 \\
+Intrinsic motivation s & 7.12E-07 & 7.12E-07 & 1.20E-05 & 3.32E-06 &
+3.32E-06 & 2.63E-05 \\
+Social Preference & 0.003 & 0.003 & 0.014 & 0.003 & 0.003 & 0.014 \\
+Warm glow coefficient & 0.125 & 0.125 & 0.147 & 0.143 & 0.143 & 0.15 \\
+Gift exchange coefficient & 3.26E-06 & 3.26E-06 & 2.45E-05 & 8.58E-06 &
+8.59E-06 & 3.70E-05 \\
+present biased coefficient & 1.17 & 1.17 & 3.05 & 1.15 & 1.15 & 12.64 \\
+Weekly discount factor & 0.75 & 0.75 & 0.34 & 0.76 & 0.76 & 0.32 \\
+\bottomrule()
+\end{longtable}
 
-The data set for the example project is taken from
-\url{https://www.stem.org.uk/resources/elibrary/resource/28452/large-datasets-stats4schools}.
-It contains data on smoking habits in the UK, with 1691 observations and 12 variables.
-We consider only 4 of the 12 features for the prediction of the variable
-\texttt{smoking}: \texttt{marital\_status}, \texttt{highest\_qualification},
-\texttt{gender} and \texttt{age}. We model the dependence using a Logistic model. All
-numerical features are included linearly, while categorical features are expanded into
-dummy variables. Figures below illustrate the model predictions over the lifetime. You
-will find one figure and one estimation summary table for each installed programming
-language.
-
-
-
-\begin{figure}[H]
-
-    \centering
-    \includegraphics[width=0.85\textwidth]{../python/figures/smoking_by_marital_status}
-
-    \caption{\emph{Python:} Model predictions of the smoking probability over the
-        lifetime. Each colored line represents a case where marital status is fixed to one
-        of the values present in the data set.}
-    \label{fig:python-predictions}
-
-\end{figure}
-
-
-\begin{table}[!h]
-    \input{../python/tables/estimation_results.tex}
-    \caption{\label{tab:python-summary}\emph{Python:} Estimation results of the
-        linear Logistic regression.}
-\end{table}
-
-
-
-
-% section introduction (end)
-
-
-
-\setstretch{1}
-\printbibliography
-\setstretch{1.5}
-
-
-% \appendix
-
-% The chngctr package is needed for the following lines.
-% \counterwithin{table}{section}
-% \counterwithin{figure}{section}
+This table is the replication of \textbf{TABLE 5} panel A and panel B
+for \textbf{minimum distance} method in the paper. As we can see, the
+estimation result is identical to the one of authors for power cost
+function, and for Exp cost function, the result just slightly different.
+For easier comparison reason, please check the graph
+\textbf{mini\_dist\_params\_comparison\_exp} and
+\textbf{mini\_dist\_params\_comparison\_power} in figures file.
 
 \end{document}
+
+% \documentclass[11pt, a4paper, leqno]{article}
+% \usepackage{a4wide}
+% \usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc}
+% \usepackage{float, afterpage, rotating, graphicx}
+% \usepackage{epstopdf}
+% \usepackage{longtable, booktabs, tabularx}
+% \usepackage{fancyvrb, moreverb, relsize}
+% \usepackage{eurosym, calc}
+% % \usepackage{chngcntr}
+% \usepackage{amsmath, amssymb, amsfonts, amsthm, bm}
+% \usepackage{caption}
+% \usepackage{mdwlist}
+% \usepackage{xfrac}
+% \usepackage{setspace}
+% \usepackage[dvipsnames]{xcolor}
+% \usepackage{subcaption}
+% \usepackage{minibox}
+% % \usepackage{pdf14} % Enable for Manuscriptcentral -- can't handle pdf 1.5
+% % \usepackage{endfloat} % Enable to move tables / figures to the end. Useful for some
+% % submissions.
+
+% {\setlength\tabcolsep{1.5pt}}
+
+% parameters & E\_est4 & E\_se4 & E\_aut1 & E\_est5 & E\_se5 & E\_aut2 &
+% E\_est6 & E\_aut3 & E\_se6 \\
+
+
+
+
+
+
+
+
+% \usepackage[
+%     natbib=true,
+%     bibencoding=inputenc,
+%     bibstyle=authoryear-ibid,
+%     citestyle=authoryear-comp,
+%     maxcitenames=3,
+%     maxbibnames=10,
+%     useprefix=false,
+%     sortcites=true,
+%     backend=biber
+% ]{biblatex}
+% \AtBeginDocument{\toggletrue{blx@useprefix}}
+% \AtBeginBibliography{\togglefalse{blx@useprefix}}
+% \setlength{\bibitemsep}{1.5ex}
+% \addbibresource{../../paper/refs.bib}
+
+% \usepackage[unicode=true]{hyperref}
+% \hypersetup{
+%     colorlinks=true,
+%     linkcolor=black,
+%     anchorcolor=black,
+%     citecolor=NavyBlue,
+%     filecolor=black,
+%     menucolor=black,
+%     runcolor=black,
+%     urlcolor=NavyBlue
+% }
+
+
+% \widowpenalty=10000
+% \clubpenalty=10000
+
+% \setlength{\parskip}{1ex}
+% \setlength{\parindent}{0ex}
+% \setstretch{1.5}
+
+
+% \begin{document}
+
+% \title{epp final\thanks{Yu Hsin Chen, Bonn University. Email: \href{mailto:s6ynche2@uni-bonn.de}{\nolinkurl{s6ynche2 [at] uni-bonn [dot] de}}.}}
+
+% \author{Yu Hsin Chen}
+
+% \date{
+%     {\bf Preliminary -- please do not quote}
+%     \\[1ex]
+%     \today
+% }
+
+% \maketitle
+
+
+% \begin{abstract}
+%     Some abstract here.
+% \end{abstract}
+
+% \clearpage
+
+
+% \section{Introduction} % (fold)
+% \label{sec:introduction}
+
+% If you are using this template, please cite this item from the references:
+% \citet{GaudeckerEconProjectTemplates}.
+
+% I want to try and see
+% The data set for the example project is taken from
+% \url{https://www.stem.org.uk/resources/elibrary/resource/28452/large-datasets-stats4schools}.
+% It contains data on smoking habits in the UK, with 1691 observations and 12 variables.
+% We consider only 4 of the 12 features for the prediction of the variable
+% \texttt{smoking}: \texttt{marital\_status}, \texttt{highest\_qualification},
+% \texttt{gender} and \texttt{age}. We model the dependence using a Logistic model. All
+% numerical features are included linearly, while categorical features are expanded into
+% dummy variables. Figures below illustrate the model predictions over the lifetime. You
+% will find one figure and one estimation summary table for each installed programming
+% language.
+
+
+
+% \begin{figure}[H]
+
+%     \centering
+%     \includegraphics[width=0.85\textwidth]{../python/figures/smoking_by_marital_status}
+
+%     \caption{\emph{Python:} Model predictions of the smoking probability over the
+%         lifetime. Each colored line represents a case where marital status is fixed to one
+%         of the values present in the data set.}
+%     \label{fig:python-predictions}
+
+% \end{figure}
+
+
+% \begin{table}[!h]
+%     \input{../python/tables/estimation_results.tex}
+%     \caption{\label{tab:python-summary}\emph{Python:} Estimation results of the
+%         linear Logistic regression.}
+% \end{table}
+
+
+
+
+% % section introduction (end)
+
+
+
+% \setstretch{1}
+% \printbibliography
+% \setstretch{1.5}
+
+
+% % \appendix
+
+% % The chngctr package is needed for the following lines.
+% % \counterwithin{table}{section}
+% % \counterwithin{figure}{section}
+% \end{document}
