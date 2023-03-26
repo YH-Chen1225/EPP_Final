@@ -33,6 +33,10 @@
   - BLD/latex/**epp_final.pdf**
   - BLD/python/**data**
   - BLD/python/**figures**
+  
+## Abstract
+  This paper are discussing what motivates people efforts. There are many factors in our real life would makes people willing to makes efforts, including money, donation, ecouragement, comparing with other people and etc. There are totally 18 treatments discussed in the paper. This project would analyze which
+  treatment motivates people the most, what is the distribution, mean and standard error of people's effort, what insightful information can we get from these distribution. Besides, both power cost function and exponential cost function would be applied to predict people's effort for each treatment. In the process, all the parameters in these two function would be estimated by several methods and assumptions. Finally, the estimation result would be compare with the one estimated by authors of paper graphically. 
 
 ## Reference
 - Stefano DellaVigna and Devin Pope, 2018, "What Motivates Effort? Evidence and Expert Forecasts", Review of Economic Studies, 85(2): 1029–1069
