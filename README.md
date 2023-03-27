@@ -19,57 +19,26 @@
 - Several graphs have been added and more analysis result have been added and modify to makes the project more comprehensive
 - It can run in pytask successfully
 
-## File Managemnet
-- **EPP_P** is the original jupiter notebook code replicating part of Table 5(NLS part) and Table 6 in the paper 
-- **EPP_Gmm** is the original jupiter notebook code replicating another part of the Table 5 in the paper(Minimum Distance Estimator on Average Effort part)
-- **Plot** is the original jupiter notebook code that making graphs
-- SRC/epp_final/**data management** include the data processing process
-- SRC/epp_final/analysis/**NLS** are mainly converted from EPP_P for operating pytask
-- SRC/epp_final/analysis/**mini_dist** are mainly converted from EPP_Gmm for operating pytask
-- SRC/epp_final/**final** are mainly converted from plot for pytask reason
-
-
-## Replicating the paper
-
-### Background
-This paper are discussing what motivates people to make effort. This paper is based on a online experiment, which asking participant to press
-the button as much as they can in a limit of time. When timeout, the participant would be given reward according how many times they press the button and also according to the treatment they are allocated. In the experiment, participants would not know there are several treatments and it is also not allow to re-access or refresh the page. 
-
-### Treatment
-Follwing treatment are allocating to participants
-- Benchmark Treatment
-  - Normal Piece Rate: Participants may earn, **1 cent per 100 points** or **10 cent per 100 points**
-  - Special Piece Rate: Participants may earn, **1 cent per 1000 points**(count as not enough pay) or **no reward**
-
-- Social preferences
-  - Charity: **Charity organization** may earn, **1 cent per 100 points** or **10 cent per 100 points**
-  - Gift exchange: **40 cents** would be given anyway andscore would not affect the payment
- 
-- Discounting
-  - Participants may earn 1 cent per 100 points after **two weeks from today** or **four weeks from today**
-  - 
-
- 
+## File Management
+- My original code
+  - **EPP_P** is the original jupiter notebook code replicating part of Table 5(NLS part) and Table 6 in the paper 
+  - **EPP_Gmm** is the original jupiter notebook code replicating another part(Minimum Distance Estimator on Average Effort part) of the Table 5 in the paper
+  - **Plot** is the original jupiter notebook code that making graphs
+- My pytask code
+  - SRC/epp_final/**data management** include the data processing process
+  - SRC/epp_final/analysis/**NLS** are mainly converted from EPP_P for operating pytask
+  - SRC/epp_final/analysis/**mini_dist** are mainly converted from EPP_Gmm for operating pytask
+  - SRC/epp_final/**final** are mainly converted from plot for pytask reason
+- My result
+  - BLD/latex/**epp_final.pdf**
+  - BLD/python/**data**
+  - BLD/python/**figures**
   
+## Abstract
+  This paper are discussing what motivates people efforts. There are many factors in our real life would makes people willing to makes efforts, including money, donation, ecouragement, comparing with other people and etc. There are totally 18 treatments discussed in the paper. This project would analyze which
+  treatment motivates people the most, what is the distribution, mean and standard error of people's effort, what insightful information can we get from these distribution. Besides, both power cost function and exponential cost function would be applied to predict people's effort for each treatment. In the process, all the parameters in these two function would be estimated by several methods and assumptions. Finally, the estimation result would be compare with the one estimated by authors of paper graphically. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Credits
-This project was created with [cookiecutter](https://github.com/audreyr/cookiecutter)
-and the
-econ-project-templates](https://github.com/OpenSourceEconomics/econ-project-templates).
-=======
-# EPP_Final
-##I haven't finished yet
->>>>>>> 5f4bd893dc890bc685010ea53f79e5ead4b0e02f
+## Reference
+- Stefano DellaVigna and Devin Pope, 2018, "What Motivates Effort? Evidence and Expert Forecasts", Review of Economic Studies, 85(2): 1029–1069
+- [Original code repository](https://github.com/MassimilianoPozzi/python_julia_structural_behavioral_economics)
+- [Pytask Econ Project Template](https://github.com/OpenSourceEconomics/econ-project-templates)
