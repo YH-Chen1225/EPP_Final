@@ -214,7 +214,7 @@ def another_params_comparison(t6, type1, type2, type3):
     fig.append_trace(trace3, 1, 2)
     fig.update_layout(
         barmode="group",
-        title="Comparison of "
+        title="Comparison of"
         " "
         f"{type3}"
         " "
@@ -237,7 +237,7 @@ def mini_dist(df, a):
     )
 
     trace2 = go.Bar(
-        x=["my Social preferences estimation", "author estimation"],
+        x=["my Social preferences estimation", "authors estimation"],
         y=df.filter(regex=a).iloc[3, :],
         name="Social preferences estimation comparison",
         textposition="auto",
@@ -245,7 +245,7 @@ def mini_dist(df, a):
     )
 
     trace3 = go.Bar(
-        x=["my coefficient a estimation", "author estimation"],
+        x=["my coefficient a estimation", "authors estimation"],
         y=df.filter(regex=a).iloc[4, :],
         name="Warm glow coefficient a estimation comparison",
         textposition="auto",
@@ -253,7 +253,7 @@ def mini_dist(df, a):
     )
 
     trace4 = go.Bar(
-        x=["my Present bias β estimation", "author estimation"],
+        x=["my Present bias β estimation", "authors estimation"],
         y=df.filter(regex=a).iloc[6, :],
         name="Present bias β estimation comparison",
         textposition="auto",
@@ -261,7 +261,7 @@ def mini_dist(df, a):
     )
 
     trace5 = go.Bar(
-        x=["discount factor δ estimation", "author estimation"],
+        x=["discount factor δ estimation", "authors estimation"],
         y=df.filter(regex=a).iloc[7, :],
         name="Discount factor δ estimation comparison",
         textposition="auto",
