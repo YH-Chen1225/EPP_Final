@@ -33,7 +33,25 @@
   - BLD/latex/**epp_final.pdf**
   - BLD/python/**data**
   - BLD/python/**figures**
-  
+
+## How to operate this project
+```
+#First, pull the project to lacal repository via git bash
+git pull origin master
+
+#Second, open the anaconda powershell and cd to the corresponding path
+cd (path)
+
+#Third, activate the environment
+conda activate epp_final
+
+#Fourth, operating the project
+pytask
+
+#Fifth(optional), if there is any package that did not be install, please install according to the error message
+pip install package_name
+```
+
 ## Abstract
   This paper are discussing what motivates people efforts. There are many factors in our real life would makes people willing to makes efforts, including money, donation, ecouragement, comparing with other people and etc. There are totally 18 treatments discussed in the paper. This project would analyze which
   treatment motivates people the most, what is the distribution, mean and standard error of people's effort, what insightful information can we get from these distribution. Besides, both power cost function and exponential cost function would be applied to predict people's effort for each treatment. In the process, all the parameters in these two function would be estimated by several methods and assumptions. Finally, the estimation result would be compare with the one estimated by authors of paper graphically. 
