@@ -35,21 +35,29 @@
   - BLD/python/**figures**
 
 ## How to operate this project
+### Preparation work before running this project:
+If you do not have Ananconda and git, please download and install it first.Link:
+[Anaconda](https://www.anaconda.com/) and [Git](https://git-scm.com/)
+
 ```
 #First, pull the project to lacal repository via git bash
+#Right click in the file that you want to put this file, and choose git bash, type following instructions
+git init 
+git remote add origin https://github.com/YH-Chen1225/EPP_Final
 git pull origin master
 
-#Second, open the anaconda powershell and cd to the corresponding path
+#Second, open the anaconda powershell and cd to the path that you set
 cd (path)
 
 #Third, activate the environment
+conda env create -f environment.yml
 conda activate epp_final
 
 #Fourth, operating the project
 pytask
 
 #Fifth(optional), if there is any package that did not be install, please install according to the error message
-pip install package_name
+pip install package_name #in the anaconda powershell
 ```
 
 ## Abstract
