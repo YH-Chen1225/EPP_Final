@@ -36,7 +36,7 @@
 
 ## How to operate this project
 ### Preparation before running this project:
-If you do not have Ananconda git and laTex, please download and install it at first.Link:
+If you do not have Ananconda, Git and laTex, please download and install it at first.Link:
 [Anaconda](https://www.anaconda.com/) and [Git](https://git-scm.com/) and [LaTex](https://www.latex-project.org/get/#ctan)
 
 ```
