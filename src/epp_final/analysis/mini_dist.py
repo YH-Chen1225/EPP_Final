@@ -25,6 +25,9 @@ def mybootstrap(dataset, number):
         number:The number of times to conducting bootstrap
 
     """
+    if number <0:
+        raise ValueError("The number of boostraping times should not be smaller than zero")
+
     e11, e12, e13, e31, e32, e10, e41, e42 = [], [], [], [], [], [], [], []
     box = {
         "1.1": e11,
@@ -174,6 +177,9 @@ def model_estimation(df):
                     depends on which cost function you want to apply.
 
         """
+        if func_type not in("Exp","Power"):
+            raise NameError("This function is not included")
+
         if func_type == "Exp":
             params["specification"] = "Exp"
             estimates = vmindisest(params)
@@ -213,6 +219,11 @@ def model_table(table5power, sd_power, table5exp, sd_exp):
                          for minimum distance method
 
     """
+    if any(sd_power <0):
+        raise ValueError("SD shouldn't be smaller than zero")
+    if any(sd_exp<0):
+        raise ValueError("SD shouldn't be smaller than zero")
+    
     params_name = [
         "Level k of cost of effort",
         "Curvature y of cost function",
