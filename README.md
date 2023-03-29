@@ -56,8 +56,8 @@ conda activate epp_final
 #Fourth, operating the project
 pytask
 
-#Fifth(optional), if there is any package that did not be install, please install the package according to the error message
-pip install package_name #in the anaconda powershell
+#Fifth(optional), if there is any package that did not be installed, please install the package according to the error message in the anaconda powershell
+pip install package_name 
 ```
 
 ## Abstract
