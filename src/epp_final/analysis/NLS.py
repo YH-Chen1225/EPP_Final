@@ -72,6 +72,12 @@ def predict_func(df):
                     to decide which cost function we are going to apply.
 
         """
+        if k_scaler < 0:
+            raise ValueError("The scaler shouldn't be smaller than zero")
+        if s_scaler < 0:
+            raise ValueError("The scaler shouldn't be smaller than zero")
+        if func_type not in ("exp", "power"):
+            raise NameError("This type of function is not included")
 
         def benchmark(pay100, g, k, s) -> float:
             """The cost function with benchmark treatment.
@@ -205,6 +211,17 @@ def other_opi(df, effort, k_scaler, s_scaler, func_type, opt_type, st_values) ->
                 to decide which cost function we are going to apply.
 
     """
+    if k_scaler < 0:
+        raise ValueError("The scaler shouldn't be smaller than zero")
+
+    if s_scaler < 0:
+        raise ValueError("The scaler shouldn't be smaller than zero")
+
+    if func_type not in ("exp", "power"):
+        raise NameError("This type of function is not included")
+
+    if opt_type not in ("ls", "mini"):
+        raise NameError("This type of method is not included")
 
     def benchmark_other(params) -> float:
         """The cost function with benchmark treatment.
@@ -409,6 +426,15 @@ def predict_other_treatment(df):
         st_values: This is the initial guess for the parameters k,gamma,s.
 
         """
+        if k_scaler < 0:
+            raise ValueError("The scaler shouldn't be smaller than zero")
+
+        if s_scaler < 0:
+            raise ValueError("The scaler shouldn't be smaller than zero")
+
+        if func_type not in ("exp", "power"):
+            raise NameError("This type of function is not included")
+
         # Define the f(x,θ) to estimate all parameters but the probability weight
         def noweight(xdata, g, k, s, alpha, a, gift, beta, delta) -> float:
             """Cost function assumption.
@@ -590,6 +616,14 @@ def predict_prob_01(df):  # dis____func
         curve: the curvature of the value function
 
         """
+        if k_scaler < 0:
+            raise ValueError("The scaler shouldn't be smaller than zero")
+
+        if s_scaler < 0:
+            raise ValueError("The scaler shouldn't be smaller than zero")
+
+        if func_type not in ("exp", "power"):
+            raise NameError("This type of function is not included")
 
         def probweight(xdata, g, k, s, p_weight) -> float:
             """probability weight cost function.
@@ -706,6 +740,14 @@ def predict_prob_02(df):
         st_values: This is the initial guess for the parameters k,gamma,s.
 
         """
+        if k_scaler < 0:
+            raise ValueError("The scaler shouldn't be smaller than zero")
+
+        if s_scaler < 0:
+            raise ValueError("The scaler shouldn't be smaller than zero")
+
+        if func_type not in ("exp", "power"):
+            raise NameError("This type of function is not included")
 
         def probweight(xdata, g, k, s, p_weight, curve) -> float:
             """Cost function with probability weight and curve parameters.
