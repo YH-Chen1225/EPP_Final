@@ -8,6 +8,7 @@ channels:
 dependencies:
   - python=3.11
   - pip >=21.1
+  - scikit-learn
   - setuptools_scm
   - toml
 
@@ -37,3 +38,4 @@ dependencies:
 
   - pip:
       - -e .  # installs the project
+      - sklearn-utils
