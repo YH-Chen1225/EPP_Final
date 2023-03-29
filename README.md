@@ -35,8 +35,8 @@
   - BLD/python/**figures**
 
 ## How to operate this project
-### Preparation work before running this project:
-If you do not have Ananconda and git, please download and install it first.Link:
+### Preparation before running this project:
+If you do not have Ananconda and git, please download and install it at first.Link:
 [Anaconda](https://www.anaconda.com/) and [Git](https://git-scm.com/)
 
 ```
