@@ -46,7 +46,7 @@ git init
 git remote add origin https://github.com/YH-Chen1225/EPP_Final
 git pull origin master
 
-#Second, open the anaconda powershell and cd to the path that you set
+#Second, open the anaconda powershell and cd to the path 
 cd (path)
 
 #Third, activate the environment
