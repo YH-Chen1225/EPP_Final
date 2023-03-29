@@ -21,9 +21,9 @@
 
 ## File Management
 - My original code
-  - **EPP_P** is the original jupiter notebook code replicating part of Table 5(NLS part) and Table 6 in the paper 
-  - **EPP_Gmm** is the original jupiter notebook code replicating another part(Minimum Distance Estimator on Average Effort part) of the Table 5 in the paper
-  - **Plot** is the original jupiter notebook code that making graphs
+  - **EPP_P** is the original jupiter notebook code I wrote for replicating part of Table 5(NLS part) and Table 6 in the paper 
+  - **EPP_Gmm** is the original jupiter notebook code I wrote for replicating another part(Minimum Distance Estimator on Average Effort part) of the Table 5 in the paper
+  - **Plot** is the original jupiter notebook code I wrote for making graphs
 - My pytask code
   - SRC/epp_final/**data management** include the data processing process
   - SRC/epp_final/analysis/**NLS** are mainly converted from EPP_P for operating pytask
