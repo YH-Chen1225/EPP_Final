@@ -21,9 +21,9 @@
 
 ## File Management
 - My original code
-  - **EPP_P** is the original jupiter notebook code replicating part of Table 5(NLS part) and Table 6 in the paper 
-  - **EPP_Gmm** is the original jupiter notebook code replicating another part(Minimum Distance Estimator on Average Effort part) of the Table 5 in the paper
-  - **Plot** is the original jupiter notebook code that making graphs
+  - **EPP_P** is the original jupiter notebook code I wrote for replicating part of Table 5(NLS part) and Table 6 in the paper 
+  - **EPP_Gmm** is the original jupiter notebook code I wrote for replicating another part(Minimum Distance Estimator on Average Effort part) of the Table 5 in the paper
+  - **Plot** is the original jupiter notebook code I wrote for making graphs
 - My pytask code
   - SRC/epp_final/**data management** include the data processing process
   - SRC/epp_final/analysis/**NLS** are mainly converted from EPP_P for operating pytask
@@ -35,8 +35,8 @@
   - BLD/python/**figures**
 
 ## How to operate this project
-### Preparation work before running this project:
-If you do not have Ananconda and git, please download and install it first.Link:
+### Preparation before running this project:
+If you do not have Ananconda and git, please download and install it at first.Link:
 [Anaconda](https://www.anaconda.com/) and [Git](https://git-scm.com/)
 
 ```
@@ -56,8 +56,8 @@ conda activate epp_final
 #Fourth, operating the project
 pytask
 
-#Fifth(optional), if there is any package that did not be install, please install the package according to the error message
-pip install package_name #in the anaconda powershell
+#Fifth(optional), if there is any package that did not be installed, please install the package according to the error message in the anaconda powershell
+pip install package_name 
 ```
 
 ## Abstract
