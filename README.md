@@ -36,8 +36,8 @@
 
 ## How to operate this project
 ### Preparation before running this project:
-If you do not have Ananconda and git, please download and install it at first.Link:
-[Anaconda](https://www.anaconda.com/) and [Git](https://git-scm.com/)
+If you do not have Ananconda git and laTex, please download and install it at first.Link:
+[Anaconda](https://www.anaconda.com/) and [Git](https://git-scm.com/) and [LaTex](https://www.latex-project.org/get/#ctan)
 
 ```
 #First, pull the project to lacal repository via git bash
