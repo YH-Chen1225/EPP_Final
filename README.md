@@ -12,7 +12,7 @@
 ## Author
 - Name: Yu-Hsin Chen  
 - Matriculation Num: 3461265
-- Email : s6ynche2@uni-bonn.de 
+- Email : ua89622u@gmail.com
 
 ## Main contribution of this project
 - Almost all the code have been re-write in a more efficient way.
